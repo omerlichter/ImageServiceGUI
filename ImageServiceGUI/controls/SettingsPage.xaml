@@ -33,12 +33,12 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Row="0" Style="{StaticResource propertieTitle}">Output Directory:</TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource propertieValue}">value</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource propertieValue}" Text="{Binding VM_OutputDirectory}"/>
         <TextBlock Grid.Row="1" Style="{StaticResource propertieTitle}">Source Name:</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource propertieValue}">value</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource propertieValue}" Text="{Binding VM_SourceName}"/>
         <TextBlock Grid.Row="2" Style="{StaticResource propertieTitle}">Log Name:</TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource propertieValue}">value</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource propertieValue}" Text="{Binding VM_LogName}"/>
         <TextBlock Grid.Row="3" Style="{StaticResource propertieTitle}">Thumbnail Size:</TextBlock>
-        <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource propertieValue}">value</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource propertieValue}" Text="{Binding VM_ThumbnailSize}"/>
     </Grid>
 </UserControl>

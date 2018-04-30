@@ -20,9 +20,12 @@ namespace ImageServiceGUI.controls
     /// </summary>
     public partial class SettingsPage : UserControl
     {
+        IVMSettingsPage vm_settingsPage;
         public SettingsPage()
         {
             InitializeComponent();
+            vm_settingsPage = new VMSettingsPage(new ModelSettingsPage());
+            this.DataContext = this.vm_settingsPage;
         }
     }
 }
