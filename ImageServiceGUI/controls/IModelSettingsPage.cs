@@ -14,6 +14,6 @@ namespace ImageServiceGUI.controls
         string LogName { set; get; }
         int ThumbnailSize { set; get; }
 
-        bool GetSettingsFromService();
+        void GetSettingsFromService();
     }
 }

@@ -20,7 +20,8 @@ namespace ImageServiceGUI.controls
     /// </summary>
     public partial class SettingsPage : UserControl
     {
-        IVMSettingsPage vm_settingsPage;
+        private IVMSettingsPage vm_settingsPage;
+
         public SettingsPage()
         {
             InitializeComponent();

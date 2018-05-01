@@ -26,6 +26,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -40,5 +41,18 @@
         <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource propertieValue}" Text="{Binding VM_LogName}"/>
         <TextBlock Grid.Row="3" Style="{StaticResource propertieTitle}">Thumbnail Size:</TextBlock>
         <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource propertieValue}" Text="{Binding VM_ThumbnailSize}"/>
+        <Button Grid.ColumnSpan="2" Grid.Row="4" Content="Remove">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="IsEnabled" Value="True"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding SelectedItem, ElementName= lbHandlers}" Value="{x:Null}">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <ListBox Name="lbHandlers" Grid.ColumnSpan="2" Grid.Row="5" ItemsSource="{Binding LbHandlers}"/>
     </Grid>
 </UserControl>

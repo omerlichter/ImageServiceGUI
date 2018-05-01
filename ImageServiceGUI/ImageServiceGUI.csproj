@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="Commands\DelegateCommandBase.cs" />
+    <Compile Include="Commands\WeakEventHandlerManager.cs" />
     <Compile Include="controls\IModelSettingsPage.cs" />
     <Compile Include="controls\IVMSettingsPage.cs" />
     <Compile Include="controls\LogsPage.xaml.cs">

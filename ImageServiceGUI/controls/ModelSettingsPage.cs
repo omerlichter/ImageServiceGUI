@@ -52,31 +52,37 @@ namespace ImageServiceGUI.controls
                 this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
 
-        public bool GetSettingsFromService()
+        public void GetSettingsFromService()
         {
-            try
+            Task t = new Task(() =>
             {
-                IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 12345);
-                TcpClient client = new TcpClient();
-                client.Connect(ep);
-
-                using (NetworkStream stream = client.GetStream())
-                using (BinaryReader reader = new BinaryReader(stream))
-                using (BinaryWriter writer = new BinaryWriter(stream))
+                try
                 {
-                    // Send data to server
-                    writer.Write("bla");
+                    IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 12345);
+                    TcpClient client = new TcpClient();
+                    client.Connect(ep);
 
-                    // Get result from server
-                    int result = reader.ReadInt32();
+                    using (NetworkStream stream = client.GetStream())
+                    using (BinaryReader reader = new BinaryReader(stream))
+                    using (BinaryWriter writer = new BinaryWriter(stream))
+                    {
+                        // Send command to server
+                        writer.Write("GetConfig");
+
+                        // Get result from server
+                        this.OutputDirectory = reader.ReadString();
+                        this.SourceName = reader.ReadString();
+                        this.LogName = reader.ReadString();
+                        this.ThumbnailSize = reader.ReadInt32();
+                    }
+
                 }
-
-            } catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-                return false;
-            }
-            return true;
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            });
+            t.Start();
         }
     }
 }

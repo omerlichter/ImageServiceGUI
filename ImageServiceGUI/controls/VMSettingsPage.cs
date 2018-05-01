@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ namespace ImageServiceGUI.controls
     {
         private IModelSettingsPage model;
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public ObservableCollection<string> lbHandlers = new ObservableCollection<string>();
 
         public string VM_OutputDirectory
         {
@@ -32,14 +35,21 @@ namespace ImageServiceGUI.controls
             get { return this.model.ThumbnailSize; }
         }
 
+        public ObservableCollection<string> LbHandlers
+        {
+            get { return this.lbHandlers; }
+        }
+
         public VMSettingsPage(IModelSettingsPage model)
         {
             this.model = model;
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
                 NotifyPropertyChanged("VM_" + e.PropertyName);
             };
-            model.GetSettingsFromService();
-
+            this.model.GetSettingsFromService();
+            this.lbHandlers.Add("one");
+            this.lbHandlers.Add("two");
+            this.lbHandlers.Add("three");
         }
 
         public void NotifyPropertyChanged(string propName)
