@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
-namespace ImageServiceGUI.controls
+namespace ImageServiceGUI.Model
 {
     interface IModelSettingsPage : INotifyPropertyChanged
     {

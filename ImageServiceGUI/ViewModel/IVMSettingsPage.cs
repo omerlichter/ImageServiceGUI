@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
-namespace ImageServiceGUI.controls
+namespace ImageServiceGUI.ViewModel
 {
     interface IVMSettingsPage : INotifyPropertyChanged
     {

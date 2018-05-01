@@ -8,7 +8,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.IO;
 
-namespace ImageServiceGUI.controls
+namespace ImageServiceGUI.Model
 {
     class ModelSettingsPage : IModelSettingsPage
     {
